@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         }
         //Using component move with velocity
         //characterController.Move(velocity * Time.deltaTime);
-        //
+        //Jumping
         //Input.GetKeyDown(KeyCode.Space);
 
         characterController.Move(new Vector3(horizontalInput, 0, 0) * speedMultiplier *  Time.deltaTime);

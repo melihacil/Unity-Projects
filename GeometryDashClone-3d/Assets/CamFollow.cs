@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 offset;
+
+
+    [SerializeField] private Transform player = null;
+
+    private void Start()
     {
-        
+        offset = transform.position - player.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        transform.position = Vector3.Lerp(transform.position, new Vector3(player.position.x, 0, player.position.z) + offset, Time.deltaTime * 3); 
     }
+
+
+
+
+
 }

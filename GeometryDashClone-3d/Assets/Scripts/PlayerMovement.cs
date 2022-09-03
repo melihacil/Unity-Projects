@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float horizontalInput = 1f;
     [SerializeField] LayerMask groundLayer;
     private float gravity = -50f;
-
+    private bool isGrounded = false;
     private Vector3 velocity;
 
     private CharacterController characterController;
@@ -25,7 +25,13 @@ public class PlayerMovement : MonoBehaviour
         //Adding gravity to velocity
         velocity.y += gravity * Time.deltaTime;
 
+        isGrounded = Physics.CheckSphere(transform.position, 0.6f,groundLayer, QueryTriggerInteraction.Ignore);
 
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = 0; 
+        }
         //Using component move with velocity
         characterController.Move(velocity * Time.deltaTime);
 

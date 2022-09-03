@@ -8,9 +8,13 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float horizontalInput = 1f;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] float speedMultiplier = 3f;
     private float gravity = -50f;
     private bool isGrounded = false;
     private Vector3 velocity;
+
+    
+
 
     private CharacterController characterController;
     void Start()
@@ -23,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //Adding gravity to velocity
-        velocity.y += gravity * Time.deltaTime;
+        
+        transform.forward = new Vector3(horizontalInput, 0f, Mathf.Abs(horizontalInput) -1 );
+
 
         isGrounded = Physics.CheckSphere(transform.position, 0.6f,groundLayer, QueryTriggerInteraction.Ignore);
 
@@ -32,8 +38,15 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = 0; 
         }
+        else
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
         //Using component move with velocity
-        characterController.Move(velocity * Time.deltaTime);
+        //characterController.Move(velocity * Time.deltaTime);
 
+
+        characterController.Move(new Vector3(horizontalInput, 0, 0) * speedMultiplier *  Time.deltaTime);
+        characterController.Move(velocity * Time.deltaTime);
     }
 }

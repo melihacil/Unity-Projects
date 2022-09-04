@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float horizontalInput = 1f;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] float speedMultiplier = 8f;
+    [SerializeField] float speedMultiplier = 12f;
+    [SerializeField] private float jumpHeight = 2f;
     private float gravity = -50f;
     private bool isGrounded = false;
     private Vector3 velocity;
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     private CharacterController characterController;
+    
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -46,6 +49,13 @@ public class PlayerMovement : MonoBehaviour
         //characterController.Move(velocity * Time.deltaTime);
         //Jumping
         //Input.GetKeyDown(KeyCode.Space);
+
+        if (isGrounded && Input.GetButtonDown("Jump"))
+        {
+            velocity.y += Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
+
+
 
         characterController.Move(new Vector3(horizontalInput, 0, 0) * speedMultiplier *  Time.deltaTime);
         characterController.Move(velocity * Time.deltaTime);

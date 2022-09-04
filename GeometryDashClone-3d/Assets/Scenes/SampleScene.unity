@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 729962805}
   - component: {fileID: 729962804}
   - component: {fileID: 729962803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,6 +588,10 @@ PrefabInstance:
     - target: {fileID: 3354541422050466638, guid: 13a5a708dd335ad478c880cbdb5a6bcc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732168750092394471, guid: 13a5a708dd335ad478c880cbdb5a6bcc, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6508002258435893865, guid: 13a5a708dd335ad478c880cbdb5a6bcc, type: 3}
       propertyPath: m_Constraints

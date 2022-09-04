@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     [SerializeField] float horizontalInput = 1f;
     [SerializeField] LayerMask groundLayer;
@@ -14,9 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = false;
     private Vector3 velocity;
 
-    
-
-
+  
     private CharacterController characterController;
     
 
@@ -25,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 

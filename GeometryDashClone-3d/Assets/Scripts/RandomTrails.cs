@@ -10,13 +10,12 @@ public class RandomTrails : MonoBehaviour
     private float timeStamp;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         trailRenderer = GetComponent<TrailRenderer>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Time.time > timeStamp + duration)

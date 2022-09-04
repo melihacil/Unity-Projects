@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float horizontalInput = 1f;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] float speedMultiplier = 3f;
+    [SerializeField] float speedMultiplier = 8f;
     private float gravity = -50f;
     private bool isGrounded = false;
     private Vector3 velocity;
